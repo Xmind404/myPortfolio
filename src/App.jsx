@@ -27,7 +27,7 @@ function App() {
   const cardData = {
     img: "https://avatars.githubusercontent.com/u/71905653",
     header: "Franciszek Karbowniczek",
-    languages: ['C++', 'C', 'MySQL', 'Java', 'React', 'JavaScript', 'HTML', 'CSS', 'Python'],
+    languages: ['C++', 'C', 'MySQL', 'Java', 'React', 'JavaScript', 'HTML', 'CSS', 'Python', 'PHP'],
     description: ['Passion for clean code', 'drive to make an impact'],
     links: [
       { name: 'Instagram', url: 'https://www.instagram.com/karbowniczekfranciszek/', icon: 'instagram' },
@@ -53,7 +53,7 @@ function App() {
     { name: "German", level: "Learning" }
   ];
 
-  const codingLanguages = ["C++", "C", "MySQL", "Java", "React", "JavaScript", "HTML", "CSS", "Python"];
+  const codingLanguages = ["C++", "C", "MySQL", "Java", "React", "JavaScript", "HTML", "CSS", "Python", "PHP"];
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
