@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+.cardContainer {
+  display: inline-block;
+  perspective: 1000px;
+  margin: 15px;
+}
+
+.card {
+  --card-width: 320px;
+  --border-radius: 12px;
+  --primary-color: #000000;
+  --secondary-color: #EFEFEF;
+  --text-color: #828282;
+  --shadow: 0 8px 15px #343434;
+  --transition-time: 0.3s;
+  --href-color: #ffffff;
+  --colorBorderCard: #FFFFFF;
+  --weightBorderCard: 4px;
+
+  width: var(--card-width);
+  min-height: 400px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform var(--transition-time) ease-in-out, max-height 0.3s ease;
+  cursor: pointer;
+  font-family: "Roboto Mono", monospace;
+  user-select: none;
+  border: var(--weightBorderCard) solid var(--colorBorderCard);
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  background: linear-gradient(135deg, var(--primary-color), #0F0F0F);
+  animation: fadeIn 0.4s ease-out;
+  overflow: visible;
+}
+
+.cardFlipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+  color: var(--text-color);
+  transition: all 0.25s ease;
+}
+
+.front {
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+
+.back {
+  transform: rotateY(180deg);
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: inherit;
+  width: 100%;
+}
+
+.cardImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--secondary-color);
+  margin-bottom: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cardHeader {
+  margin: 5px 0;
+  font-size: 1.3rem;
+  text-align: center;
+  color: var(--secondary-color);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.languagesSection {
+  width: 100%;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.languagesSection h2 {
+  font-size: 0.95rem;
+  margin-bottom: 3px;
+  color: var(--secondary-color);
+}
+
+.languagesList {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin: 3px 0;
+}
+
+.description {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  padding: 0 5px;
+  width: 100%;
+}
+
+.flipHint {
+  font-size: 0.7rem;
+  margin-top: 1rem;
+  opacity: 0.6;
+}
+
+.back h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+  text-align: center;
+}
+
+.linksList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.linksList li {
+  margin: 6px 0;
+  transition: transform 0.2s ease;
+  opacity: 0;
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.linksList li:hover {
+  transform: translateX(4px);
+}
+
+.linksList a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.8rem;
+  transition: color 0.2s ease;
+}
+
+.linksList a:hover {
+  color: var(--href-color);
+}
+
+.linksList svg {
+  margin-right: 10px;
+  font-size: 1.8rem;
+}
+
+.linksList li:nth-child(1) { animation-delay: 0.1s; }
+.linksList li:nth-child(2) { animation-delay: 0.2s; }
+.linksList li:nth-child(3) { animation-delay: 0.3s; }
+.linksList li:nth-child(4) { animation-delay: 0.4s; }
+
+a, p, h1, h2, h3, h4, h5, h6 {
+  text-shadow: var(--shadow);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+/* Author: Franciszek Karbowniczek (aka Xmind 404) */
