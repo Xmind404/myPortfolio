@@ -11,10 +11,9 @@ function App() {
   let year = d.getFullYear();
 
   const menuItems = [
+    { to: "home", text: "// home" },
     { to: "whoami", text: "// whoami" },
-    { to: "strongPoints", text: "// I find myself in" },
-    { to: "languages", text: "// Linguistic Skills" },
-    { to: "coding", text: "// Code Languages I Use" }
+    { to: "strengths", text: "// strengths" },
   ];
 
   const dynamicTexts = [
@@ -63,21 +62,25 @@ function App() {
 
   return (
     <div className="webSite">
-      <div className="btnChangeTheme" onClick={toggleTheme}>
-        <p>🎨</p>
+      <div className="theme-toggle-container">
+        <div className="btn-change-theme" onClick={toggleTheme}>
+          <p>🎨</p>
+        </div>
       </div>
 
-      <button
-        id="menu-toggle"
-        className={menuActive ? "active" : ""}
-        aria-label="Toggle menu"
-        onClick={() => setMenuActive(!menuActive)}
-      >
-        ☰
-      </button>
+      <div className="menu-toggle-container">
+        <button
+          id="menu-toggle"
+          className={menuActive ? "active" : ""}
+          aria-label="Toggle menu"
+          onClick={() => setMenuActive(!menuActive)}
+        >
+          ☰
+        </button>
+      </div>
 
       <nav className={`navigation ${menuActive ? 'active' : ''}`}>
-        <div className='left'> 
+        <div className='nav-left'> 
           <Link
             to="home"
             smooth={true}
@@ -88,7 +91,8 @@ function App() {
             <span className="menu-text"><i>// Franciszek Karbowniczek</i></span>
           </Link>
         </div>
-        <div className="right">
+        
+        <div className="nav-right">
           {menuItems.map((item, index) => (
             <Link
               key={index}
@@ -104,86 +108,87 @@ function App() {
         </div>
       </nav>
 
-      <main>
-        <div id="home" className='home'>
-          <div className="intro">
-            <div className='intro-left'>
-              <h2>//hi, Franciszek here.</h2>
-              <div className='wrapper'>
-                <div className="static-text">I'm</div>
-                <ul className="dynamic-texts">
-                  {dynamicTexts.map((text, index) => (
-                    <li key={index}><span>{text}</span></li>
-                  ))}
-                </ul>
+      <main className="main-content">
+        <section id="home" className='home-section'>
+          <div className="home-container">
+            <div className="intro-content">
+              <div className='intro-left'>
+                <h2>//hi, Franciszek here.</h2>
+                <div className='title-wrapper'>
+                  <div className="static-text">I'm</div>
+                  <ul className="dynamic-texts">
+                    {dynamicTexts.map((text, index) => (
+                      <li key={index}><span>{text}</span></li>
+                    ))}
+                  </ul>
+                </div>
+                <p><i>"Programming is my art, code is my canvas"</i></p>
+                <p><i>"Elegance in the logic, purpose in the outcome"</i></p>
               </div>
-              <p><i>"Programming is my art, code is my canvas"</i></p>
-              <p><i>"Elegance in the logic, purpose in the outcome"</i></p>
-            </div>
 
-            <div className="intro-right">
-              <Card {...cardData} />
-            </div>
-          </div>
-        </div>
-
-        <div id="whoami" className="whoami page">
-          <h2><span>// whoami</span></h2>
-          <p>
-            Hey, My name is <mark>Franciszek Karbowniczek</mark>, a <mark>17 year old programmer</mark> from Czeladź, Poland.
-            My story with computers started basically as soon as I learned how to use a computer.
-            At the age of 8, I was building projects in Scratch, turning basic blocks into working games.
-            By 12, I explored programming with Scottie Go, and by 14, I was <mark>diving into Python</mark>, where my real journey with programming began.
-            At 15, I became a <mark>national finalist in INSTALOGIK</mark>, <mark>one of Poland's competitions focused on logical thinking and algorithmic challenges</mark>.
-            I also took part in competitions like <mark>"Giganci Programowania"</mark> and <mark>"PixBlocks"</mark> where I was programming in Python.
-            Currently, I'm a student at <mark>"Zespół Szkół Technicznych i Ogólnokształcących Nr 2 in Katowice"</mark>, where I've <mark>expanded my programming skills</mark>:
-          </p>
-          <ul>
-            <li>First year: <mark>HTML, CSS, MySQL, C#</mark></li>
-            <li>Second year: <mark>PHP, JavaScript</mark></li>
-          </ul>
-          <p>
-            But I didn't stop there. I also learned C and C++ on my own and started exploring React.js.
-            For me, coding is not work, "Programming is my art, code is my canvas".
-          </p>
-        </div>
-
-        <div id="strongPoints" className="strongPoints page">
-          <h2><span>// I find myself in</span></h2>
-          <div className='list-box'>
-            {strongPoints.map((point, index) => (
-              <div key={index} className="findmyself-tile list"><p>{point}</p></div>
-            ))}
-          </div>
-        </div>
-
-        <div id="languages" className="languageLevel page">
-          <h2><span>// Linguistic Skills</span></h2>
-          <div className='list-box'>
-            {languages.map((lang, index) => (
-              <div key={index} className="language-tile list">
-                <p>{lang.name}</p>
-                <span className="language-level">{lang.level}</span>
+              <div className="intro-right">
+                <Card {...cardData} />
               </div>
-            ))}
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div id="coding" className="codingLanguages page">
-          <h2><span>// Code Languages I Use</span></h2>
-          <div className='list-box'>
-            {codingLanguages.map((lang, index) => (
-              <div key={index} className="skill-title list"><p>{lang}</p></div>
-            ))}
+        <section id="whoami" className="whoami-section">
+          <div className="section-container">
+            <h2 className="section-title"><span>// whoami</span></h2>
+            <p className='whoami-text'>
+              Hey, my name is <mark>Franciszek Karbowniczek</mark>, a <mark>17-year-old</mark> from <mark>Czeladź, Poland</mark>.
+              I started programming at <mark>8</mark> with <mark>Scratch</mark>, then <mark>Scottie Go</mark> at <mark>12</mark>, and <mark>Python</mark> at <mark>14</mark>.
+              At <mark>15</mark>, I was a <mark>national finalist</mark> in <mark>INSTALOGIK</mark>, a contest on <mark>logic and algorithms</mark>.
+              I also took part in <mark>"Giganci Programowania"</mark> and <mark>"PixBlocks"</mark> using <mark>Python</mark>.
+              Currently, I study at <mark>Zespół Szkół Technicznych i Ogólnokształcących Nr 2</mark> in Katowice.
+            </p>
+                       
+            <p className='languages-header'>
+              <span>Here are some technologies I work with:</span>
+            </p>
+            <ul className='technologies-list'>
+              {codingLanguages.map((lang, index) => (
+                <li key={index}>▷&nbsp;{lang}</li>
+              ))}
+            </ul>
+            
+            <p className='languages-header'>
+              <span>Languages I speak:</span>
+            </p>
+            <div className="spoken-languages">
+              {languages.map((lang, index) => (
+                <p key={index} className='language-item'>
+                  ▷&nbsp;&nbsp;&nbsp;&nbsp;
+                  <b>{lang.name}</b> - {lang.level}
+                  {index < languages.length - 1 ? ', ' : ''}<br/>
+                </p>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
+
+        <section id="strengths" className="strengths-section">
+          <div className="section-container">
+            <h2 className="section-title"><span>// I find myself in</span></h2>
+            <div className='strengths-grid'>
+              {strongPoints.map((point, index) => (
+                <div key={index} className="strength-card">
+                  <p>{point}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
-      <div className="footer">
-        <p>{year}</p>
-        <p>Built and designed by Franciszek Karbwoniczek.</p>
-        <p>All rights reserved. ©</p>
-      </div>
+      <footer className="site-footer">
+        <div className="footer-content">
+          <p>{year}</p>
+          <p>Built and designed by Franciszek Karbwoniczek.</p>
+          <p>All rights reserved. ©</p>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Xmind404.github.io/Portfolio",
+  "homepage": "https://xmind404.github.io/myPortfolio",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
