@@ -25,6 +25,10 @@
     --mark: #88e6c6;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 [data-theme="light"] {
     --bg-main: #fff;
     --text-main: #000;
